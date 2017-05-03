@@ -1,9 +1,3 @@
-<h1 align="center">After Dark</h1>
-
-<p align="center">
-  <strong>A simple, yet highly configurable responsive dark theme for <a target="intro" href="https://gohugo.io/">Hugo</a>.</strong>
-</p>
-
 <p align="center">
   <img src="https://raw.githubusercontent.com/comfusion/after-dark/master/images/minimal-mac.png" title="After Dark running on a MacBook and iPhone" alt="After Dark theme screenshots">
 </p>
@@ -130,53 +124,15 @@ Head to [Hack Cabin](https://hackcabin.com) for a **live example** running on <a
 
 ```shell
 brew install hugo
-hugo new site flying-toasters && cd $_
 ```
 
-Clone After Dark and use it to serve your site:
+Install [`elinks`](http://elinks.or.cz/) (optional) and run the [install script](https://github.com/comfusion/after-dark/blob/master/bin/install.sh) located in the theme's `bin` directory:
 
-```shell
-(cd themes; git clone https://github.com/comfusion/after-dark)
-hugo serve --theme=after-dark
+```
+curl -sL https://git.io/v906l | sh
 ```
 
-Then copy theme-provided archetypes to your site:
-
-```shell
-cp themes/after-dark/archetypes/* archetypes
-```
-
-Finally, include these settings in your site's `config.toml`:
-
-```toml
-baseurl = "https://c74ce35e.ngrok.io" # Controls base URL
-languageCode = "en-US" # Controls site language
-title = "After Dark" # Homepage title and page title suffix
-paginate = 11 # Number of posts to show before paginating
-
-# theme = "after-dark" # Uncomment to use as default theme
-
-enableRobotsTXT = true # Suggested, enable robots.txt file
-googleAnalytics = "" # Optional, add tracking Id for analytics
-disqusShortname = "" # Optional, add Disqus shortname for comments
-SectionPagesMenu = "main" # Enable menu system for lazy bloggers
-footnoteReturnLinkContents = "↩" # Provides a nicer footnote return link
-
-[params]
-  description = "" # Suggested, controls default description meta
-  author = "" # Optional, controls author name display on posts
-  hide_author = false # Optional, set true to hide author name on posts
-  show_menu = false # Optional, set true to enable section menu
-  powered_by = true # Optional, set false to disable credits
-  images = [
-    "https://source.unsplash.com/category/technology/1600x900"
-  ] # Suggested, controls default Open Graph images
-  theme_variant = "" # Optional, for use to overriding default theme
-```
-
-Create your first post with `hugo new post/hello-world.md`.
-
-That's it! Everything else is optional. Read on to learn how to configure specific features and customize the theme.
+Script will run `hugo serve` as a backgrounded process. To kill the process get the `PID` with `lsof -n -i4TCP:1337` and then `kill -9` followed by the process identifier.
 
 ## Customizing
 
